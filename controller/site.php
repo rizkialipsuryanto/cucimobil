@@ -11,7 +11,7 @@
 		              </script>";
 		}
 		else{
-			$query = mysql_query("INSERT INTO tm_user (no_ktp, nama, alamat, kecamatan_id, kelurahan_id, kode_pos, jenis_kelamin_id, agama_id, tempat_lahir, tanggal_lahir, no_telp, password, jenis_user) VALUES ('".$_POST['ktp']."','".$_POST['nama']."','".$_POST['alamat']."','".$_POST['kecamatan']."','".$_POST['kelurahan']."','".$_POST['kodepos']."','".$_POST['jk']."','".$_POST['agama']."','".$_POST['tlahir']."','".$_POST['tgllahir']."', '".$_POST['telp']."','".$_POST['password']."','3')");
+			$query = mysql_query("INSERT INTO tm_user (no_ktp, nama, alamat, kecamatan_id, kelurahan_id, kode_pos, jenis_kelamin_id, tempat_lahir, tanggal_lahir, no_telp, password, jenis_user) VALUES ('".$_POST['ktp']."','".$_POST['nama']."','".$_POST['alamat']."','".$_POST['kecamatan']."','".$_POST['kelurahan']."','".$_POST['kodepos']."','".$_POST['jk']."','".$_POST['tlahir']."','".$_POST['tgllahir']."', '".$_POST['telp']."','".$_POST['password']."','3')");
 
 			if($query)
 		      {

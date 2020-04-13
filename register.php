@@ -116,7 +116,7 @@
                     <option value="P">Perempuan</option>
         </select>
         </div>
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
         <label>Pilih Agama</label>
         <select class="form-control select2" id="agama" name="agama" style="width: 100%;" required>
             <option value="">Pilih Agama</option>
@@ -127,7 +127,7 @@
               <?php echo $pr['agama'] ; ?></option>
             <?php } ?>
         </select>
-        </div>
+        </div> -->
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="No Telp" id="telp" name="telp" required>
           <div class="input-group-append">
