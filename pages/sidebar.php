@@ -69,7 +69,7 @@
                   <li class="nav-item">
                     <a href="?hal=setwaktu" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Setting Waktu</p>
+                      <p>Pengaturan Waktu</p>
                     </a>
                   </li>
                 </ul>
@@ -202,7 +202,7 @@
             <a href="?halpelanggan=createpesan" class="nav-link">
               <i class="nav-icon fas fa-sync-alt"></i>
               <p>
-                Transaksi
+                Pesan
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
