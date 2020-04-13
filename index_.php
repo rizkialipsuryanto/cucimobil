@@ -443,8 +443,13 @@ $("#jenislayananpesan").change(function(){
 
 <script type="text/javascript">
 $(document).ready(function() { 
+  $("#tanggal").change(function(){
+  var tanggal = $("#tanggal").val(); 
+  var nik = $("#nik").val();
+  url = 'model/filterwaktu.php?tanggal='+tanggal+'&nik='+nik; 
+  $("#jam").html('');
     $("#jam").append('<option value="">Pilih jam</option>');  
-    url = 'model/filterwaktu.php'; 
+    
     // alert(url);
     $.ajax({ url: url, 
     type: 'GET', 
@@ -455,6 +460,7 @@ $(document).ready(function() {
         $("#jam").append('<option value="' + result[i].id + '">' + result[i].waktu + '</option>');  
         } 
     }); 
+    });
 
 
       $("#jam").change(function(){ 
