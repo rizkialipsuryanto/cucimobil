@@ -5,11 +5,12 @@
             a.pelanggan_id,
             a.tgl_pesan,
             a.status, 
+            (select aa.nama from tm_user aa where aa.user_id = a.id_user_pencuci) as pencuci,
             c.alamat,
             c.no_telp
              
             FROM tr_cuci a  
-            JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
+            LEFT JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
 where a.pelanggan_id = '".$user_id."'"); 
     // $tb_act  = isset($_POST['tb_act']) ? $_POST['tb_act'] : NULL;
 
@@ -35,6 +36,7 @@ where a.pelanggan_id = '".$user_id."'");
                   <th>Tgl Input</th>
                   <th>Alamat Lengkap</th>
                   <th>No Hp</th>  
+                  <th>Pencuci</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
@@ -50,6 +52,7 @@ where a.pelanggan_id = '".$user_id."'");
                       <td><?php echo $g['tgl_pesan']; ?></td>
                       <td><?php echo $g['alamat']?></td>
                       <td><?php echo $g['no_telp']?></td>   
+                      <td><?php echo $g['pencuci']?></td>
                       <td class="center">
                       <?php 
                           if($g['status']==1){
