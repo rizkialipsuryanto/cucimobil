@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Introduction
 ============
 
@@ -93,3 +94,7 @@ Image Credits
 [Unsplash](https://unsplash.com/)
 
 [Uifaces](http://uifaces.com/)
+=======
+# cucimobil
+aplikasi cuci mobil (skripsi gibul)
+>>>>>>> bf88547d3e3811a7844b750fd8cedf8ff447eafc
