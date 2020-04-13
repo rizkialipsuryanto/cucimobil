@@ -11,7 +11,7 @@
  Target Server Version : 100132
  File Encoding         : 65001
 
- Date: 22/03/2020 21:21:15
+ Date: 13/04/2020 21:48:32
 */
 
 SET NAMES utf8mb4;
@@ -199,7 +199,7 @@ CREATE TABLE `tm_userdetailmobil`  (
   `nik` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `mobil` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tm_userdetailmobil
@@ -210,6 +210,7 @@ INSERT INTO `tm_userdetailmobil` VALUES (3, '112', 'Avanza');
 INSERT INTO `tm_userdetailmobil` VALUES (4, '9999', 'Avanza');
 INSERT INTO `tm_userdetailmobil` VALUES (5, '321', 'Xenia');
 INSERT INTO `tm_userdetailmobil` VALUES (6, '321', 'Avanza');
+INSERT INTO `tm_userdetailmobil` VALUES (7, '123', 'sdsd');
 
 -- ----------------------------
 -- Table structure for tr_cuci
@@ -239,9 +240,9 @@ INSERT INTO `tr_cuci` VALUES (1, 'TRS0001', '3304011511950003', 1, '11000', NULL
 INSERT INTO `tr_cuci` VALUES (2, 'TRS0002', '3304011511950003', 2, '12000', NULL, NULL, '2', '10', '16/12/', '2019-12-17', 2, 1);
 INSERT INTO `tr_cuci` VALUES (3, 'TRS0003', '112', 1, '11000', NULL, NULL, '2', '13', '16/12/', '2019-12-17', 2, 2);
 INSERT INTO `tr_cuci` VALUES (4, 'TRS0004', '9999', 1, '6000', NULL, NULL, '1', '10', '18/12/', '2019-12-19', 1, 1);
-INSERT INTO `tr_cuci` VALUES (5, 'TRS0005', '321', 1, '11000', NULL, NULL, '2', '10', '18/12/', '2019-12-19', 2, 2);
-INSERT INTO `tr_cuci` VALUES (6, 'TRS0006', '3304011511950003', NULL, NULL, NULL, NULL, '2', '10', NULL, '2019-12-18', 1, 1);
-INSERT INTO `tr_cuci` VALUES (7, 'TRS0007', '321', NULL, NULL, NULL, NULL, '2', '10', NULL, '2019-12-23', 5, 2);
+INSERT INTO `tr_cuci` VALUES (5, 'TRS0005', '321', 1, '11000', NULL, NULL, '3', '10', '18/12/', '2019-12-19', 2, 2);
+INSERT INTO `tr_cuci` VALUES (6, 'TRS0006', '3304011511950003', NULL, NULL, NULL, NULL, '3', '10', NULL, '2019-12-18', 1, 1);
+INSERT INTO `tr_cuci` VALUES (7, 'TRS0007', '321', NULL, NULL, NULL, NULL, '3', '10', NULL, '2019-12-23', 5, 2);
 INSERT INTO `tr_cuci` VALUES (8, 'TRS0008', '321', NULL, NULL, NULL, NULL, '2', '13', NULL, '2019-12-23', 5, 1);
 INSERT INTO `tr_cuci` VALUES (9, 'TRS0009', '321', NULL, NULL, NULL, NULL, '1', NULL, NULL, '2019-12-23', 5, 2);
 INSERT INTO `tr_cuci` VALUES (10, 'TRS0010', '321', NULL, NULL, NULL, NULL, '2', '10', NULL, '2020-01-10', 3, 1);
