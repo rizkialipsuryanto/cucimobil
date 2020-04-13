@@ -53,7 +53,7 @@
 
     <!-- Main content -->
     <div class="callout callout-info">
-                <?php if($jumlah>0){ ?>
+                <?php if($jumlah>1){ ?>
               <h5><i class="fas fa-info"></i> Anda sudah melakukan pemesanan dihari ini, Silahkan lakukan pemesanan di lain hari</h5>
     </div>          
     <?php } else {?>
