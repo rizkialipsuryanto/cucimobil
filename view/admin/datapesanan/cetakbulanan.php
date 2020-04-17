@@ -71,6 +71,22 @@
                 </div>
                 <!-- /.form-group -->
               </div>
+
+              <div class="col-md-6">
+                
+                <div class="form-group">
+                  <label>Pencuci</label>
+                  <select class="form-control" id='pencuci'>
+                           <option>-Pilih Pencuci</option>
+                            <?php 
+                            $query = mysql_query("SELECT * FROM tm_user WHERE jenis_user = '2'");
+                              while($row = mysql_fetch_array($query)){?>
+                                 <option value="<?=$row['user_id']?>"><?=$row['nama']?></option>
+                            <?php }?>
+                         </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
               <!-- /.col -->
             </div>
                   <button type="submit" class="btn btn-primary">Print</button>  

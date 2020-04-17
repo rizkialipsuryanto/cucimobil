@@ -34,6 +34,8 @@ $o= date('d');
 $d= $_POST['tanggal'];
 $m= $_POST['bulan'];
 $y= $_POST['tahun'];
+$pencuci= $_POST['pencuci'];
+// print_r($pencuci);
 $tgl = date(' d-m-Y'); 
 $day = date('m', strtotime($tgl));
 $dayList = array(
@@ -116,15 +118,21 @@ if ($m == 12) {
 <br><br><br>
 <?php
 
+if ($pencuci!="ALL") {
+	$where = " and a.id_user_pencuci = '".$pencuci."'";
+}
+else{
+	$where = "";
+}
 $profile = ("SELECT a.no_cuci as no_transaksi,b.nama, b.alamat, (SELECT cc.nama from tm_user cc where cc.user_id = a.id_user_pencuci) as pencuci, a.jumlah, a.total_bayar as totalbayar FROM tr_cuci a left join tm_user b on a.pelanggan_id = b.no_ktp
-			where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3'");
+			where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3' $where");
 $data = mysql_query($profile);
 
 // echo $profile;
 // die();
 
 $profilesum = ("SELECT count(a.cuci_id) as tottransaksi, sum(a.jumlah) as jumlah, sum(a.total_bayar) as totbayar
-FROM tr_cuci a where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3'");
+FROM tr_cuci a where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3' $where");
 $datatotala = mysql_query($profilesum);
 
 // echo $datatotala;
@@ -132,7 +140,7 @@ $datatotala = mysql_query($profilesum);
 
 $profiletransak = ("SELECT count(cuci_id) as tottransaksi, sum(jumlah) as ongkirtrans, sum(total_bayar) as berattrans
 FROM tr_cuci a
-where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3'");
+where SUBSTRING(a.tgl_pesan,9,2) = '".$d."' AND SUBSTRING(a.tgl_pesan,6,2) = '".$m."' AND SUBSTRING(a.tgl_pesan,1,4) = '".$y."' AND status ='3' $where");
 $datatotaltransak = mysql_query($profiletransak);
 
 echo $data['tgl_pesan'];

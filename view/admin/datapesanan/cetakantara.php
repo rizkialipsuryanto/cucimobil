@@ -62,6 +62,22 @@
               </div>                
               <!-- /.col -->
             </div>
+            <div class="col-md-12">
+                
+                <div class="form-group">
+                  <label>Pencuci</label>
+                  <select class="form-control" id='pencuci' name="pencuci">
+                           <option>ALL</option>
+                            <?php 
+                            $query = mysql_query("SELECT * FROM tm_user WHERE jenis_user = '2'");
+                              while($row = mysql_fetch_array($query)){?>
+                                 <option value="<?=$row['user_id']?>"><?=$row['nama']?></option>
+                            <?php }?>
+                         </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <br><br>
                   <button type="submit" class="btn btn-primary">Print</button>  
                   <!-- <a href="../jasatiki/cetak.php?bulan="></a> -->
             

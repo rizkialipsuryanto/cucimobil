@@ -33,6 +33,8 @@ $o= date('d');
 // $y= date('Y');
 $daritgl= $_POST['daritgl'];
 $sampaitgl= $_POST['sampaitgl'];
+$pencuci= $_POST['pencuci'];
+// print_r($pencuci);
 // echo $daritgl;
 // echo $sampaitgl;
 // die();
@@ -70,17 +72,24 @@ $sampaitgl= $_POST['sampaitgl'];
 
 <?php
 
+if ($pencuci!="ALL") {
+	$where = " and a.id_user_pencuci = '".$pencuci."'";
+}
+else{
+	$where = "";
+}
+
 $profile = ("SELECT a.no_cuci as no_transaksi,b.nama, b.alamat, (SELECT cc.nama from tm_user cc where cc.user_id = a.id_user_pencuci) as pencuci, a.jumlah, a.total_bayar as totalbayar FROM tr_cuci a left join tm_user b on a.pelanggan_id = b.no_ktp
-			where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3'");
+			where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where");
 $data = mysql_query($profile);
 
 $profilesum = ("SELECT count(a.cuci_id) as tottransaksi, sum(a.jumlah) as jumlah, sum(a.total_bayar) as totbayar
-FROM tr_cuci a where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3'");
+FROM tr_cuci a where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where");
 $datatotala = mysql_query($profilesum);
 
 $profiletransak = ("SELECT count(cuci_id) as tottransaksi, sum(jumlah) as ongkirtrans, sum(total_bayar) as berattrans
 FROM tr_cuci a
-where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3'");
+where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where");
 $datatotaltransak = mysql_query($profiletransak);
 
 echo $data['tgl_pesan'];
