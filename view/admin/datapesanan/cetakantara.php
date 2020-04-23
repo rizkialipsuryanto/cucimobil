@@ -167,8 +167,8 @@ while ($p = mysql_fetch_array($data)){
   
 ?>
 
-<tbody>
-<tr>
+<tbody border="1">
+<tr border="1">
 <td align="center"><?php echo $n; ?></td>
 <td><?php echo $tgl_pesan; ?></td>
 <td><?php echo $pencuci; ?></td>
