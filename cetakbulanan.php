@@ -102,13 +102,7 @@ if ($m == 12) {
 </tr>
 <tr>
 <td>TAHUN</td><td>:</td><td><?php echo $y; ?></td>
-</tr>
-<!-- <tr>
-<td>SATUAN KERJA</td><td>:</td><td><?php echo $pga['nama_sekolah']; ?></td><td width="300">NO. KODE LOKASI : <?php echo $pta['no_kode_lokasi']; ?></td>
-</tr>
-<tr>
-<td>RUANGAN</td><td>:</td><td><?php echo $sta['jenis_ruang']; ?></td>
-</tr> --></table>
+</tr></table>
 <br><br><br>
 <?php
 

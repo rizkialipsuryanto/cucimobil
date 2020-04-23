@@ -79,7 +79,8 @@ else{
 	$where = "";
 }
 
-$profile = ("SELECT a.no_cuci as no_transaksi,b.nama, b.alamat, (SELECT cc.nama from tm_user cc where cc.user_id = a.id_user_pencuci) as pencuci, a.jumlah, a.total_bayar as totalbayar FROM tr_cuci a left join tm_user b on a.pelanggan_id = b.no_ktp
+$profile = ("SELECT a.no_cuci as no_transaksi,b.nama, b.alamat,a.tgl_pesan, c.waktu as jam, (SELECT cc.nama from tm_user cc where cc.user_id = a.id_user_pencuci) as pencuci, a.jumlah, a.total_bayar as totalbayar FROM tr_cuci a left join tm_user b on a.pelanggan_id = b.no_ktp
+  left join tm_setwaktu c on a.id_jam = c.id
 			where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where");
 $data = mysql_query($profile);
 
@@ -115,37 +116,36 @@ echo $data['tgl_pesan'];
 <thead>
 <tr>
 <td rowspan="2" align="center">#</td>
-<!-- <td rowspan="2" align="center">No Pesanan</td> -->
-<td rowspan="2" align="center">No Transaksi</td>
-<td rowspan="2" align="center">Nama</td>
+<td rowspan="2" align="center">Tanggal</td>
+<td rowspan="2" align="center">Nama Pencuci</td>
+<td rowspan="2" align="center">Jam</td>
+<td rowspan="2" align="center">Nama Pelanggan</td>
 <td rowspan="2" align="center">Alamat</td>
-<td rowspan="2" align="center">Pencuci</td>
-<td rowspan="2" align="center">Jumlah Mobil</td>
 <td rowspan="2" align="center">Total Harga</td>
 </tr>
 </thead>
 <?php
 while ($p = mysql_fetch_array($data)){
-	@$n++;
-	$no_transaksi = $p['no_transaksi'];
-	$nama = $p['nama'];
-	$alamat = $p['alamat'];
-	$pencuci = $p['pencuci'];
-	$jumlah = $p['jumlah'];
-	// ,$p['kelurahan'],$p['kecamatan'],$p['kabupaten']
-	$totalbayar = $p['totalbayar'];
-	// ,'/',$p['rw']
-	
+  @$n++;
+  $tgl_pesan = $p['tgl_pesan'];
+  $pencuci = $p['pencuci'];
+  $jam = $p['jam'];
+  $nama = $p['nama'];
+  $alamat = $p['alamat'];
+  // ,$p['kelurahan'],$p['kecamatan'],$p['kabupaten']
+  $totalbayar = $p['totalbayar'];
+  // ,'/',$p['rw']
+  
 ?>
 
 <tbody>
 <tr>
 <td align="center"><?php echo $n; ?></td>
-<td><?php echo $no_transaksi; ?></td>
+<td><?php echo $tgl_pesan; ?></td>
+<td><?php echo $pencuci; ?></td>
+<td><?php echo $jam; ?></td>
 <td><?php echo $nama; ?></td>
 <td><?php echo $alamat; ?></td>
-<td><?php echo $pencuci; ?></td>
-<td align="right"><?php echo $jumlah; ?></td>
 <td align="right"><?php echo "Rp " . number_format($totalbayar,2,',','.'); ?></td>
 
 <?php }?>

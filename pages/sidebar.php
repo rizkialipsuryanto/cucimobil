@@ -78,7 +78,7 @@
 
           <li class="nav-item">
             <a href="?hal=datapesanan" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-envelope"></i>
               <p>
                 Pesanan Masuk
                 <?php 
@@ -92,7 +92,7 @@
 
           <li class="nav-item">
             <a href="?hal=datapesanankeluar" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-envelope-open"></i>
               <p>
                 Pesanan Keluar
                 <?php 
@@ -105,7 +105,7 @@
           </li>
           <li class="nav-item">
             <a href="?hal=datapesananselesai" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-clipboard-check"></i>
               <p>
                 Pesanan Selesai
                 <?php 
@@ -116,16 +116,16 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+          <li class="nav-item ">
+            <a href="?hal=lapantara" class="nav-link">
+              <i class="fas fa-coins"></i>
               <p>
-                Laporan
-                <i class="fas fa-angle-left right"></i>
+                 Laporan Keuangan
+                <!-- <i class="fas fa-angle-left right"></i> -->
                 <!-- <span class="badge badge-info right">6</span> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="?hal=lapbulanan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -140,7 +140,7 @@
                   <p>Antara</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </li>
           <?php }elseif($_SESSION['SES_JENISUSER']=='2'){
            ?>
@@ -158,7 +158,7 @@
           </li>
           <li class="nav-item">
             <a href="?halpencuci=listjemput" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Cuci
                 <?php 
@@ -172,7 +172,7 @@
 
           <li class="nav-item">
             <a href="?halpencuci=riwayatjemput" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-list-alt"></i>
               <p>
                 Riwayat Cuci
                 <?php 
@@ -220,7 +220,7 @@
 
           <li class="nav-item">
             <a href="?halpelanggan=indexpesan" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="fas fa-list-alt"></i>
               <p>
                 History Transaksi
                 <?php 
@@ -234,7 +234,7 @@
 
           <li class="nav-item">
             <a href="?halpelanggan=profile" class="nav-link">
-              <i class="nav-icon fas fa-sync-alt"></i>
+              <i class="fas fa-user"></i>
               <p>
                 Akun
                 <span class="right badge badge-danger"></span>
