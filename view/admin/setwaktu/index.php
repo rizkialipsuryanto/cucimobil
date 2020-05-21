@@ -33,7 +33,7 @@
                       <td><?php echo $g['waktu']?></td>
                       <td><?php echo $g['kuota']; ?></td>  
                       <td class="center">
-                        <a href='?hal=updatesetwaktu&id=<?php echo $g['id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Update</a>
+                        <a href='?hal=updatesetwaktu&id=<?php echo $g['id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Edit</a>
                       </td>
                     </tr>
                     <?php

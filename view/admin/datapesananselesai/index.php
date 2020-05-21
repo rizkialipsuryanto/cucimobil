@@ -22,6 +22,7 @@
             JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
             JOIN tm_setwaktu d ON a.id_jam = d.id
             WHERE status = '3' $addval
+            order by a.tgl_pesan desc
             ");  
  ?>
     <!-- /.content-header -->
@@ -44,7 +45,7 @@
                   </div> 
                 </div> 
                 <div class="card-footer">
-                  <button type="button" name="submit" class="btn btn-primary" onclick="jvPreview();">Cari Data</button >
+                  <button type="button" name="submit" class="btn btn-primary" onclick="jvPreviewSelesai();">Cari Data</button >
                 </div>
               </form><br>
               <table id="example1" class="table table-bordered table-striped">

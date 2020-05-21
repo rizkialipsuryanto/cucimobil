@@ -99,7 +99,7 @@ if ($m == 12) {
 
 </tr>
 <tr><td colspan="4" align="center"><font style="font-size:30px;"><b>DATA PENCUCIAN MOBIL</b></td></tr>
-<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>GIBUL CAR WASH</b></td></tr>
+<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>CLEAN CAR WASH</b></td></tr>
 <tr>
 <td width="120">TANGGAL</td><td width="2">:</td><td><?php echo $d; ?></td>
 </tr>

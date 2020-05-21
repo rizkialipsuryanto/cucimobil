@@ -6,12 +6,13 @@
             a.tgl_pesan,
             a.status, 
             (select aa.nama from tm_user aa where aa.user_id = a.id_user_pencuci) as pencuci,
+            (select aa.fotodiri from tm_user aa where aa.user_id = a.id_user_pencuci) as fotodiri,
             c.alamat,
             c.no_telp
              
             FROM tr_cuci a  
             LEFT JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
-where a.pelanggan_id = '".$user_id."'"); 
+where a.pelanggan_id = '".$user_id."' order by a.tgl_pesan desc"); 
     // $tb_act  = isset($_POST['tb_act']) ? $_POST['tb_act'] : NULL;
 
  ?>
@@ -37,6 +38,7 @@ where a.pelanggan_id = '".$user_id."'");
                   <th>Alamat Lengkap</th>
                   <th>No Hp</th>  
                   <th>Pencuci</th>
+                  <th>Foto Pencuci</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
@@ -53,6 +55,7 @@ where a.pelanggan_id = '".$user_id."'");
                       <td><?php echo $g['alamat']?></td>
                       <td><?php echo $g['no_telp']?></td>   
                       <td><?php echo $g['pencuci']?></td>
+                      <td><img src="static/profil/<?=@$g['fotodiri']; ?>" width="150" height="100"></td>
                       <td class="center">
                       <?php 
                           if($g['status']==1){

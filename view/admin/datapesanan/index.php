@@ -22,6 +22,7 @@
             JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
             JOIN tm_setwaktu d ON a.id_jam = d.id
             WHERE status = '1' $addval
+            order by a.tgl_pesan desc
             ");  
  ?>
     <!-- /.content-header -->

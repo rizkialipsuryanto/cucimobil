@@ -16,11 +16,11 @@
           <div class="card">
             <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Update Kurir</h3>
+              <h3 class="card-title">Edit Karyawan</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="../cucimobil/controller/site.php?fungsi=actionupdatepencuci" method="post">
+                <form action="../cucimobil/controller/site.php?fungsi=actionupdatepencuci" method="post" enctype='multipart/form-data'>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="No KTP" id="ktp" name="ktp" value="<?php echo $row['no_ktp']; ?>" required>
                   <input type="hidden" class="form-control" placeholder="user" id="user" name="user" value="<?php echo $_GET['user_id']; ?>" required>
@@ -116,6 +116,13 @@
                       <span class="fas fa-phone"></span>
                     </div>
                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Foto Pencuci <span class="required">: </span>
+                      </label> 
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="file" name="file" id="file">
+                      </div>
                 </div>
                 <div class="input-group mb-3">
                   <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>

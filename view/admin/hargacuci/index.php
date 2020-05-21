@@ -18,7 +18,7 @@
                 <thead>
                 <tr>
                   <th width="5px">#</th>
-                  <th>Mobil</th>
+                  <th>Fasilitas</th>
                   <th>Harga</th> 
                   <th></th>
                 </tr>
@@ -33,7 +33,7 @@
                       <td><?php echo $g['jenis']?></td>
                       <td><?php echo $g['harga']; ?></td>  
                       <td class="center">
-                        <a href='?hal=updatehargacuci&id=<?php echo $g['id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Update</a>
+                        <a href='?hal=updatehargacuci&id=<?php echo $g['id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Edit</a>
                       </td>
                     </tr>
                     <?php

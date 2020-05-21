@@ -93,6 +93,7 @@
                 <div class="form-group">
                   <label>Tanggal Pesan</label>
                   <input type="date" class="form-control" id="tanggal" name="tanggal">
+                  <!-- <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask> -->
                 </div> 
                 <div class="form-group">
                   <label>Jam Pesan</label>

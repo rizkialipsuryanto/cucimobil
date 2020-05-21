@@ -11,7 +11,7 @@
 		              </script>";
 		}
 		else{
-			$query = mysql_query("INSERT INTO tm_user (no_ktp, nama, alamat, kecamatan_id, kelurahan_id, kode_pos, jenis_kelamin_id, tempat_lahir, tanggal_lahir, no_telp, password, jenis_user) VALUES ('".$_POST['ktp']."','".$_POST['nama']."','".$_POST['alamat']."','".$_POST['kecamatan']."','".$_POST['kelurahan']."','".$_POST['kodepos']."','".$_POST['jk']."','".$_POST['tlahir']."','".$_POST['tgllahir']."', '".$_POST['telp']."','".$_POST['password']."','3')");
+			$query = mysql_query("INSERT INTO tm_user (no_ktp, nama, alamat, kecamatan_id, kelurahan_id, kode_pos, jenis_kelamin_id, tempat_lahir, tanggal_lahir, no_telp, password, jenis_user,latitude,longitude) VALUES ('".$_POST['ktp']."','".$_POST['nama']."','".$_POST['alamat']."','".$_POST['kecamatan']."','".$_POST['kelurahan']."','".$_POST['kodepos']."','".$_POST['jk']."','".$_POST['tlahir']."','".$_POST['tgllahir']."', '".$_POST['telp']."','".$_POST['password']."','3', '".$_POST['latitude']."','".$_POST['longitude']."')");
 
 			if($query)
 		      {
@@ -256,22 +256,28 @@
 
 	if($_GET['fungsi']=="actionupdatepencuci")
 	{
-			$query = mysql_query("UPDATE tm_user set no_ktp = '".$_POST['ktp']."', nama = '".$_POST['nama']."', alamat = '".$_POST['alamat']."', kecamatan_id = '".$_POST['kecamatan']."', kelurahan_id = '".$_POST['kelurahan']."', kode_pos = '".$_POST['kodepos']."', jenis_kelamin_id = '".$_POST['jk']."', agama_id = '".$_POST['agama']."', tempat_lahir = '".$_POST['tlahir']."', tanggal_lahir = '".$_POST['tgllahir']."', no_telp = '".$_POST['telp']."', password = '".$_POST['password']."' where user_id = '".$_POST['user']."'");
+		$nama_gambar=$_FILES['file']['name'];
+		    $uploaddir='../static/profil/';
+		    $alamatfile=$uploaddir.$nama_gambar;
+		    if(move_uploaded_file($_FILES['file']['tmp_name'],$alamatfile))
+		    {
+				$query = mysql_query("UPDATE tm_user set no_ktp = '".$_POST['ktp']."', nama = '".$_POST['nama']."', alamat = '".$_POST['alamat']."', kecamatan_id = '".$_POST['kecamatan']."', kelurahan_id = '".$_POST['kelurahan']."', kode_pos = '".$_POST['kodepos']."', jenis_kelamin_id = '".$_POST['jk']."', agama_id = '".$_POST['agama']."', tempat_lahir = '".$_POST['tlahir']."', tanggal_lahir = '".$_POST['tgllahir']."', no_telp = '".$_POST['telp']."',fotodiri = '".$nama_gambar."', password = '".$_POST['password']."' where user_id = '".$_POST['user']."'");
 
-			if($query)
-		      {
-		        echo "<script language='javascript'>
-		              alert('Berhasil')
-		              document.location.href='../index_.php?hal=datapencuci'
-		     		</script>";
-		      }
-		     else
-		      {
-		        echo "<script language='javascript'>
-		              alert('Gagal')
-		              document.location.href='../index_.php?hal=createdatapencuci'
-		     		</script>";
-		      }
+				if($query)
+			      {
+			        echo "<script language='javascript'>
+			              alert('Berhasil')
+			              document.location.href='../index_.php?hal=datapencuci'
+			     		</script>";
+			      }
+			     else
+			      {
+			        echo "<script language='javascript'>
+			              alert('Gagal')
+			              document.location.href='../index_.php?hal=createdatapencuci'
+			     		</script>";
+			      }
+		  }
 	}
 
 	if($_GET['fungsi']=="actioninsertpesanan")

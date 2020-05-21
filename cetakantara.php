@@ -81,7 +81,7 @@ else{
 
 $profile = ("SELECT a.no_cuci as no_transaksi,b.nama, b.alamat,a.tgl_pesan, c.waktu as jam, (SELECT cc.nama from tm_user cc where cc.user_id = a.id_user_pencuci) as pencuci, a.jumlah, a.total_bayar as totalbayar FROM tr_cuci a left join tm_user b on a.pelanggan_id = b.no_ktp
   left join tm_setwaktu c on a.id_jam = c.id
-			where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where");
+			where tgl_pesan >= '".$daritgl."' AND tgl_pesan <= '".$sampaitgl."' AND status ='3' $where order by a.tgl_pesan asc, a.id_jam asc");
 $data = mysql_query($profile);
 
 $profilesum = ("SELECT count(a.cuci_id) as tottransaksi, sum(a.jumlah) as jumlah, sum(a.total_bayar) as totbayar
@@ -103,7 +103,7 @@ echo $data['tgl_pesan'];
 
 </tr>
 <tr><td colspan="4" align="center"><font style="font-size:30px;"><b>DATA PENCUCIAN MOBIL</b></td></tr>
-<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>GIBUL CAR WASH</b></td></tr>
+<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>CLEAN CAR WASH</b></td></tr>
 <tr>
 <td width="120">Dari Tanggal </td><td width="2">:</td><td><?php echo tglIndo($daritgl); ?></td>
 </tr>

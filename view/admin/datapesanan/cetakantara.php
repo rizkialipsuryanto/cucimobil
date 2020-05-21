@@ -105,7 +105,7 @@
 
 </tr>
 <tr><td colspan="4" align="center"><font style="font-size:30px;"><b>DATA PENCUCIAN MOBIL</b></td></tr>
-<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>GIBUL CAR WASH</b></td></tr>
+<tr><td colspan="4" align="center"><font style="font-size:30px;"><b>CLEAN CAR WASH</b></td></tr>
 <tr>
 <!-- td width="120">TANGGAL</td><td width="2">:</td><td><?php echo $d; ?></td>
 </tr>
@@ -152,6 +152,14 @@ echo $data['tgl_pesan'];
 <td rowspan="2" align="center">Alamat</td>
 <td rowspan="2" align="center">Harga</td>
 </tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
 </thead>
 <?php
 while ($p = mysql_fetch_array($data)){
@@ -179,6 +187,7 @@ while ($p = mysql_fetch_array($data)){
 
 <?php }?>
 </tr>
+
 <tr>
 <?php
 while ($pp = mysql_fetch_array($datatotala)){

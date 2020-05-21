@@ -21,7 +21,7 @@
             FROM tr_cuci a  
             JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
             JOIN tm_setwaktu d ON a.id_jam = d.id
-            WHERE status = '3' AND a.id_user_pencuci ='".$_SESSION['SES_ID']."' $addval
+            WHERE status = '3' AND a.id_user_pencuci ='".$_SESSION['SES_ID']."' $addval group by a.tgl_pesan order by a.tgl_pesan desc
             ");  
     }
     else{
@@ -36,7 +36,7 @@
             FROM tr_cuci a  
             JOIN tm_user c ON a.pelanggan_id = c.no_ktp 
             JOIN tm_setwaktu d ON a.id_jam = d.id
-            WHERE status = '3' AND a.id_user_pencuci ='".$_SESSION['SES_ID']."' $addval2
+            WHERE status = '3' AND a.id_user_pencuci ='".$_SESSION['SES_ID']."' $addval2 group by a.tgl_pesan order by a.tgl_pesan desc
             ");  
     }
  ?>

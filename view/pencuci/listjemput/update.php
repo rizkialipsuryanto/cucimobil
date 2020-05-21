@@ -149,6 +149,8 @@
                       </div>
                   </div>
               </div>
+              <div id="googleMap" style="width:1100px;height:500px;"></div>
+              <br><br>
               <!-- /.col -->
               <!-- /.col -->
             </div>

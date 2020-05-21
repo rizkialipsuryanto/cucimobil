@@ -22,6 +22,7 @@
                   <th>Nama</th>
                   <th>Alamat</th>
                   <th>No telp</th>
+                  <th>Foto karyawan</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -37,9 +38,10 @@
                       <td><?php echo $g['nama']; ?></td>
                       <td><?php echo $g['alamat']; ?></td>
                       <td><?php echo $g['no_telp']; ?></td>
+                      <td><img src="static/profil/<?=@$g['fotodiri']; ?>" width="150" height="100"></td>
                       
                       <td class="center">
-                        <a href='?hal=updatedatapencuci&user_id=<?php echo $g['user_id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Update</a>
+                        <a href='?hal=updatedatapencuci&user_id=<?php echo $g['user_id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Edit</a>
                       </td>
                     </tr>
                     <?php

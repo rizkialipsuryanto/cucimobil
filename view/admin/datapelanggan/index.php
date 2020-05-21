@@ -22,6 +22,7 @@
                   <th>Nama</th>
                   <th>Alamat</th>
                   <th>No telp</th>
+                  <th>Foto Rumah</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -36,6 +37,7 @@
                       <td><?php echo $g['nama']; ?></td>
                       <td><?php echo $g['alamat']; ?></td>
                       <td><?php echo $g['no_telp']; ?></td>
+                      <td><img src="static/<?=@$g['fotosatu']; ?>" width="150" height="100"></td>
                       
                       <td class="center">
                         <a href='?hal=updatedatapelanggan&user_id=<?php echo $g['user_id'] ?>'><i class='glyphicon glyphicon-trash icon-white'></i>Edit</a>

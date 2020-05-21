@@ -40,6 +40,58 @@ if (empty($_SESSION['SES_USER'])){
   <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjAuXQD6MiN7V3WjTXbD-eGbVtavyNfGQ&callback=initialize" async defer></script>
+<script type="text/javascript">   
+    var marker;
+    function initialize(){
+        // Variabel untuk menyimpan informasi lokasi
+        var infoWindow = new google.maps.InfoWindow;
+        //  Variabel berisi properti tipe peta
+        var mapOptions = {
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        } 
+        // Pembuatan peta
+        var peta = new google.maps.Map(document.getElementById('googleMap'), mapOptions);      
+    // Variabel untuk menyimpan batas kordinat
+        var bounds = new google.maps.LatLngBounds();
+        // Pengambilan data dari database MySQL
+        <?php
+    // Sesuaikan dengan konfigurasi koneksi Anda
+      $host     = "localhost";
+      $username = "root";
+      $password = "";
+      $Dbname   = "cuci_mobil";
+      $db     = new mysqli($host,$username,$password,$Dbname);
+      // include "config/koneksi.php";
+      
+      $query = $db->query("SELECT * FROM tm_user where user_id = '".$_SESSION['SES_ID']."'");
+      while ($row = $query->fetch_assoc()) {
+        $nama = $row["nama"];
+        $lat  = $row["latitude"];
+        $long = $row["longitude"];
+        echo "addMarker($lat, $long, '$nama');\n";
+      }
+        ?> 
+        // Proses membuat marker 
+        function addMarker(lat, lng, info){
+            var lokasi = new google.maps.LatLng(lat, lng);
+            bounds.extend(lokasi);
+            var marker = new google.maps.Marker({
+                map: peta,
+                position: lokasi
+            });       
+            peta.fitBounds(bounds);
+            bindInfoWindow(marker, peta, infoWindow, info);
+         }
+        // Menampilkan informasi pada masing-masing marker yang diklik
+        function bindInfoWindow(marker, peta, infoWindow, html){
+            google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(peta, marker);
+          });
+        }
+    }
+</script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -524,6 +576,12 @@ $(document).ready(function() {
      var xx = $("#tanggal").val();
      // alert(xx); 
      window.location.assign("./index_.php?hal=datapesanan&tanggal="+xx)
+  }
+
+  function jvPreviewSelesai() {
+     var xx = $("#tanggal").val();
+     // alert(xx); 
+     window.location.assign("./index_.php?hal=datapesananselesai&tanggal="+xx)
   }
   function jvPreviewjemput() {
      var xx = $("#tanggal").val();

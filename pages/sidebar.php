@@ -176,7 +176,7 @@
               <p>
                 Riwayat Cuci
                 <?php 
-                  $total = mysql_query("SELECT count(cuci_id) as total from tr_cuci where status > '2'");
+                  $total = mysql_query("SELECT count(cuci_id) as total from tr_cuci where status > '2' and id_user_pencuci = '".$_SESSION['SES_ID']."'");
                   $exec = mysql_fetch_assoc($total);
                 ?>
                 <span class="right badge badge-danger"><?php echo $exec['total']; ?></span>
