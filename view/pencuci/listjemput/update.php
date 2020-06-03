@@ -2,6 +2,7 @@
 
     $query = mysql_query("SELECT 
                           a.*, 
+                          b.user_id as iduser,
                           b.nama,
                           b.alamat,
                           b.no_telp,
@@ -12,6 +13,92 @@
                            JOIN tm_hargacuci c ON c.id = a.id_harga
                           where a.no_cuci = '".$_GET['cuci_id']."'");
     $row   = mysql_fetch_array($query);
+    // print_r($row['iduser']);
+    // die();
+
+    $no_cuci = $row['no_cuci'];  
+    $data = mysql_query("SELECT  b.mobil,a.no_cuci,d.jenis
+                          FROM tr_cuci_detail a 
+                          JOIN tm_userdetailmobil b ON a.mobil_id = b.id 
+                          JOIN tr_cuci c ON a.no_cuci = c.no_cuci 
+                          JOIN tm_hargacuci d ON d.id = c.id_harga 
+                          where a.no_cuci = '".$no_cuci."'");
+
+    // $agama_id = $row['agama_id'];
+?>
+<head>
+<!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjAuXQD6MiN7V3WjTXbD-eGbVtavyNfGQ&callback=initialize" async defer></script>
+<script type="text/javascript">   
+    var marker;
+    function initialize(){
+        // Variabel untuk menyimpan informasi lokasi
+        var infoWindow = new google.maps.InfoWindow;
+        //  Variabel berisi properti tipe peta
+        var mapOptions = {
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        } 
+        // Pembuatan peta
+        var peta = new google.maps.Map(document.getElementById('googleMap'), mapOptions);      
+    // Variabel untuk menyimpan batas kordinat
+        var bounds = new google.maps.LatLngBounds();
+        // Pengambilan data dari database MySQL
+        <?php
+    // Sesuaikan dengan konfigurasi koneksi Anda
+      $host     = "localhost";
+      $username = "root";
+      $password = "";
+      $Dbname   = "cuci_mobil";
+      $db     = new mysqli($host,$username,$password,$Dbname);
+      // include "config/koneksi.php";
+      
+      $query = $db->query("SELECT * FROM tm_user where user_id = '".$row['iduser']."'");
+      while ($row = $query->fetch_assoc()) {
+        $nama = $row["alamat"];
+        $lat  = $row["latitude"];
+        $long = $row["longitude"];
+        echo "addMarker($lat, $long, '$nama');\n";
+      }
+        ?> 
+        // Proses membuat marker 
+        function addMarker(lat, lng, info){
+            var lokasi = new google.maps.LatLng(lat, lng);
+            bounds.extend(lokasi);
+            var marker = new google.maps.Marker({
+                map: peta,
+                position: lokasi
+            });       
+            peta.fitBounds(bounds);
+            bindInfoWindow(marker, peta, infoWindow, info);
+         }
+        // Menampilkan informasi pada masing-masing marker yang diklik
+        function bindInfoWindow(marker, peta, infoWindow, html){
+            google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(peta, marker);
+          });
+        }
+    }
+</script>
+</head>
+<?php 
+
+    $query = mysql_query("SELECT 
+                          a.*, 
+                          b.user_id as iduser,
+                          b.nama,
+                          b.alamat,
+                          b.no_telp,
+                          c.harga,
+                          b.fotosatu
+                          from tr_cuci a   
+                          join tm_user b on a.pelanggan_id = b.no_ktp 
+                           JOIN tm_hargacuci c ON c.id = a.id_harga
+                          where a.no_cuci = '".$_GET['cuci_id']."'");
+    $row   = mysql_fetch_array($query);
+    // print_r($row['iduser']);
+    // die();
 
     $no_cuci = $row['no_cuci'];  
     $data = mysql_query("SELECT  b.mobil,a.no_cuci,d.jenis
@@ -154,7 +241,7 @@
               <!-- /.col -->
               <!-- /.col -->
             </div>
-
+            <br><br>
             <?php 
               if($row['status'] == '2'){?>
                   <button type="submit" class="btn btn-success">Verifikasi Cuci</button>  
@@ -185,3 +272,4 @@
             </div>
         </div>
     </div>
+

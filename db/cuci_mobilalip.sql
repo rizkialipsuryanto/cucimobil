@@ -11,7 +11,7 @@
  Target Server Version : 100132
  File Encoding         : 65001
 
- Date: 03/06/2020 21:08:14
+ Date: 03/06/2020 21:10:04
 */
 
 SET NAMES utf8mb4;
@@ -107,12 +107,16 @@ CREATE TABLE `t_chat`  (
   `cuci_id` int(11) NULL DEFAULT NULL,
   `date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`chat_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of t_chat
 -- ----------------------------
-INSERT INTO `t_chat` VALUES (1, 'Maaf dari pihak kami sedikit terlambat dikarenakan harus membeli semir ban.', 19, NULL);
+INSERT INTO `t_chat` VALUES (1, '', 9, NULL);
+INSERT INTO `t_chat` VALUES (2, 'aaaa', 9, NULL);
+INSERT INTO `t_chat` VALUES (3, 'vvvvv', 9, NULL);
+INSERT INTO `t_chat` VALUES (4, 'nunggu sabun', 9, NULL);
+INSERT INTO `t_chat` VALUES (5, '', 9, NULL);
 
 -- ----------------------------
 -- Table structure for tm_hargacuci
@@ -128,8 +132,8 @@ CREATE TABLE `tm_hargacuci`  (
 -- ----------------------------
 -- Records of tm_hargacuci
 -- ----------------------------
-INSERT INTO `tm_hargacuci` VALUES (1, 'Cuci Biasa', 50000);
-INSERT INTO `tm_hargacuci` VALUES (2, 'Cuci+Poles', 60000);
+INSERT INTO `tm_hargacuci` VALUES (1, 'Cuci Biasa', 35000);
+INSERT INTO `tm_hargacuci` VALUES (2, 'Cuci+Poles', 45000);
 
 -- ----------------------------
 -- Table structure for tm_setwaktu
@@ -173,22 +177,18 @@ CREATE TABLE `tm_user`  (
   `tgl_input` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
   `verif_flag` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `fotosatu` varchar(225) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `fotodiri` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tm_user
 -- ----------------------------
-INSERT INTO `tm_user` VALUES (9, '3302265602970002', 'Utami Widyatama', 'Jl. Prof M Yamin No.35. Rt06/Rw03', '2', '13', '53144', 'Perempuan', '1', 'Banyumas', '1996-02-16', '081392065155', 'cuci', '3', '2020-05-04 13:54:29', NULL, 'rumah1.jpeg', NULL);
-INSERT INTO `tm_user` VALUES (10, '3301131207950002', 'bayu', 'Jl. Genteng kulon Rt.03/Rw.06', '1', '1', '53256', 'Laki-laki', '1', 'Cilacap', '1995-07-12', '085647907827', 'cuci', '2', '2020-05-06 14:22:17', NULL, NULL, '7f700044-58e3-401a-85ad-6ca74f7edf9a.jpg');
-INSERT INTO `tm_user` VALUES (11, '3329031201960001', 'M.Iqbal Husen', 'purwokerto', '4', '27', '55555', 'L', '1', 'Brebes', '0000-00-00', '081326399213', 'cuci', '1', '2020-04-30 21:22:02', NULL, NULL, NULL);
-INSERT INTO `tm_user` VALUES (12, '3302246807980001', 'Yuliana Dewi Utami', 'Teluk Jl. Lensapura Rt03/Rw03 ', '2', '14', '53145', 'Perempuan', '1', 'Banyumas', '1998-07-25', '081229916515', 'cuci', '3', '2020-05-04 14:02:32', NULL, 'rumah2.jpeg', NULL);
-INSERT INTO `tm_user` VALUES (13, '3302061002970004', 'Adit', 'Jl. Sidamulya Rt.01/Rw.03 Kemranjen', '1', '1', '53194', 'Laki-laki', '1', 'Banyumas', '1997-02-10', '085602218947', 'cuci', '2', '2020-05-06 15:08:01', NULL, NULL, '81114da5-80d3-4cea-9c99-eb4dff96b4b6.jpg');
-INSERT INTO `tm_user` VALUES (15, '3302246311960001', 'Ine Vionita', 'KarangKlesem Jl. Prof. Moch Yamin Rt03/Rw03', '2', '13', '53144', 'Perempuan', '1', 'Banyumas', '1996-11-23', '085879874774', 'cuci', '3', '2020-05-04 14:03:24', NULL, 'Rumah3.jpg', NULL);
-INSERT INTO `tm_user` VALUES (16, '3302255108910001', 'Agustiar Kristyandari', 'Pasirkidul Jl. Kertawibawa Rt.03/Rw.04', '3', '16', '53135', 'Perempuan', '1', 'Banyumas', '1991-08-11', '081225205432', 'cuci', '3', '2020-05-04 14:04:01', NULL, 'Rumah4.jpeg', NULL);
-INSERT INTO `tm_user` VALUES (17, '3302260105990001', 'Prayoga Hidayatullah', 'Jl. Kauman Lama 2 No.24 Rt.03/Rw.05', '4', '24', '53114', 'Laki-laki', '1', 'Banyumas', '1999-05-01', '081578432127', 'cuci', '3', '2020-05-04 14:04:43', NULL, 'rumah5.jpg', NULL);
-INSERT INTO `tm_user` VALUES (19, '3329030301960001', 'Salman', 'Jl. H.Marzuqi Rt.02/Rw.04 Sawangan', '1', '4', '52273', 'Laki-laki', '1', 'Brebes', '1996-01-03', '085648043696', 'cuci', '2', '2020-05-06 14:26:33', NULL, NULL, 'adde18bd-0810-4f6f-8cd2-ac70db1cad2c.jpg');
+INSERT INTO `tm_user` VALUES (9, '3304011511950003', 'Rizki Alip', 'gang a no 55', '4', '27', '55555', 'L', '1', 'Banjarnegara', '1995-11-15', '085640769886', 'cuci', '3', '2019-11-30 22:12:58', NULL, NULL);
+INSERT INTO `tm_user` VALUES (10, '123', 'Bayu', 'purwokerto', '2', '12', '5555', 'Laki-laki', '1', 'Purwokerto', '1997-12-18', '08624562', 'cuci', '2', '2020-03-13 00:06:02', NULL, NULL);
+INSERT INTO `tm_user` VALUES (11, '234', 'Gibul', '-', '4', '27', '55555', 'L', '1', NULL, NULL, NULL, 'cuci', '1', '2019-12-18 08:59:59', NULL, NULL);
+INSERT INTO `tm_user` VALUES (12, '321', 'Adam', 'aaaaaa', '4', '26', '55555', 'Laki-laki', '1', 'Purbalingga', '1987-11-20', '085640769886', 'cuci', '3', '2019-12-18 09:13:56', NULL, 'Lighthouse.jpg');
+INSERT INTO `tm_user` VALUES (13, '3333', 'boom', 'purwokerto', '1', '4', '55555', 'Laki-laki', '1', 'Purbalingga', '1996-11-21', '085640769886', 'cuci', '2', '2020-03-13 00:06:56', NULL, NULL);
+INSERT INTO `tm_user` VALUES (15, '112', 'Samidun', 'Desa Jangkrik Rt 02 Rw 03', '2', '11', '2121', 'Laki-laki', '1', 'Banyumas', '2000-01-10', '00000', 'cuci', '3', '2019-12-18 22:33:48', NULL, 'Desert.jpg');
 
 -- ----------------------------
 -- Table structure for tm_userdetailmobil
@@ -199,29 +199,18 @@ CREATE TABLE `tm_userdetailmobil`  (
   `nik` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `mobil` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tm_userdetailmobil
 -- ----------------------------
-INSERT INTO `tm_userdetailmobil` VALUES (1, '3302265602970002', 'Agya');
+INSERT INTO `tm_userdetailmobil` VALUES (1, '3304011511950003', 'Agya');
 INSERT INTO `tm_userdetailmobil` VALUES (2, '3304011511950003', 'Apv ');
 INSERT INTO `tm_userdetailmobil` VALUES (3, '112', 'Avanza');
 INSERT INTO `tm_userdetailmobil` VALUES (4, '9999', 'Avanza');
-INSERT INTO `tm_userdetailmobil` VALUES (5, '3301221407010004', 'Xenia');
-INSERT INTO `tm_userdetailmobil` VALUES (6, '3301221407010004', 'Avanza');
+INSERT INTO `tm_userdetailmobil` VALUES (5, '321', 'Xenia');
+INSERT INTO `tm_userdetailmobil` VALUES (6, '321', 'Avanza');
 INSERT INTO `tm_userdetailmobil` VALUES (7, '123', 'sdsd');
-INSERT INTO `tm_userdetailmobil` VALUES (8, '3304180201950001', 'Agiya');
-INSERT INTO `tm_userdetailmobil` VALUES (9, '3301202204950001', 'Livina');
-INSERT INTO `tm_userdetailmobil` VALUES (10, '3304010309880001', 'Luxio');
-INSERT INTO `tm_userdetailmobil` VALUES (11, '3302260105990001', 'Inova');
-INSERT INTO `tm_userdetailmobil` VALUES (12, '3302265602970002', 'Luxio');
-INSERT INTO `tm_userdetailmobil` VALUES (13, '3302246807980001', 'Livina');
-INSERT INTO `tm_userdetailmobil` VALUES (14, '3302246807980001', 'Avanza');
-INSERT INTO `tm_userdetailmobil` VALUES (15, '3302246311960001', 'Panther');
-INSERT INTO `tm_userdetailmobil` VALUES (16, '3302255108910001', 'Lgx');
-INSERT INTO `tm_userdetailmobil` VALUES (17, '3302255108910001', 'Datsun Go');
-INSERT INTO `tm_userdetailmobil` VALUES (18, '3302246311960001', 'Xenia');
 
 -- ----------------------------
 -- Table structure for tr_cuci
@@ -242,30 +231,22 @@ CREATE TABLE `tr_cuci`  (
   `id_jam` int(100) NULL DEFAULT NULL,
   `id_harga` int(100) NULL DEFAULT NULL,
   PRIMARY KEY (`cuci_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tr_cuci
 -- ----------------------------
-INSERT INTO `tr_cuci` VALUES (1, 'TRS0001', '3302265602970002', 1, '50000', NULL, NULL, '3', '10', '04/05/', '2020-04-10', 1, 1);
-INSERT INTO `tr_cuci` VALUES (2, 'TRS0002', '3302265602970002', 1, '50000', NULL, NULL, '3', '19', '04/05/', '2020-04-10', 4, 1);
-INSERT INTO `tr_cuci` VALUES (3, 'TRS0003', '3302260105990001', 1, '60000', NULL, NULL, '3', '13', '04/05/', '2020-04-10', 2, 2);
-INSERT INTO `tr_cuci` VALUES (4, 'TRS0004', '3302246807980001', 1, '50000', NULL, NULL, '3', '19', '04/05/', '2020-04-11', 2, 1);
-INSERT INTO `tr_cuci` VALUES (5, 'TRS0005', '3302246807980001', 1, '60000', NULL, NULL, '3', '13', '04/05/', '2020-04-12', 4, 2);
-INSERT INTO `tr_cuci` VALUES (6, 'TRS0006', '3302255108910001', 1, '50000', NULL, NULL, '3', '10', '04/05/', '2020-04-13', 1, 1);
-INSERT INTO `tr_cuci` VALUES (7, 'TRS0007', '3302246311960001', 1, '50000', NULL, NULL, '3', '19', '04/05/', '2020-04-20', 1, 1);
-INSERT INTO `tr_cuci` VALUES (8, 'TRS0008', '3302246311960001', 1, '50000', NULL, NULL, '3', '10', '04/05/', '2020-04-20', 2, 1);
-INSERT INTO `tr_cuci` VALUES (9, 'TRS0009', '3302265602970002', 1, '50000', NULL, NULL, '3', '13', '04/05/', '2020-04-22', 3, 1);
-INSERT INTO `tr_cuci` VALUES (10, 'TRS0010', '3302260105990001', 1, '50000', NULL, NULL, '3', '10', '04/05/', '2020-04-24', 4, 1);
-INSERT INTO `tr_cuci` VALUES (11, 'TRS0011', '3302255108910001', 1, '50000', NULL, NULL, '3', '19', '04/05/', '2020-04-26', 1, 1);
-INSERT INTO `tr_cuci` VALUES (12, 'TRS0012', '3302255108910001', 1, '50000', NULL, NULL, '3', '13', '04/05/', '2020-04-26', 4, 1);
-INSERT INTO `tr_cuci` VALUES (13, 'TRS0013', '3302246311960001', 1, '50000', NULL, NULL, '3', '19', '06/05/', '2020-05-01', 1, 1);
-INSERT INTO `tr_cuci` VALUES (14, 'TRS0014', '3302246311960001', 1, '60000', NULL, NULL, '3', '19', '06/05/', '2020-05-01', 3, 2);
-INSERT INTO `tr_cuci` VALUES (15, 'TRS0015', '3302246807980001', 1, '60000', NULL, NULL, '3', '13', '06/05/', '2020-05-01', 2, 2);
-INSERT INTO `tr_cuci` VALUES (16, 'TRS0016', '3302260105990001', 1, '50000', NULL, NULL, '3', '10', '06/05/', '2020-05-01', 5, 1);
-INSERT INTO `tr_cuci` VALUES (17, 'TRS0017', '3302255108910001', 1, '60000', NULL, NULL, '3', '19', '06/05/', '2020-05-01', 2, 2);
-INSERT INTO `tr_cuci` VALUES (18, 'TRS0018', '3302246311960001', 1, '50000', NULL, NULL, '3', '19', '06/05/', '2020-05-02', 1, 1);
-INSERT INTO `tr_cuci` VALUES (19, 'TRS0019', '3302255108910001', 1, '50000', NULL, NULL, '3', '13', '06/05/', '2020-05-02', 1, 1);
+INSERT INTO `tr_cuci` VALUES (1, 'TRS0001', '3304011511950003', 1, '11000', NULL, NULL, '3', '10', '15/12/', '2019-12-15', 1, 2);
+INSERT INTO `tr_cuci` VALUES (2, 'TRS0002', '3304011511950003', 2, '12000', NULL, NULL, '2', '10', '16/12/', '2019-12-17', 2, 1);
+INSERT INTO `tr_cuci` VALUES (3, 'TRS0003', '112', 1, '11000', NULL, NULL, '2', '13', '16/12/', '2019-12-17', 2, 2);
+INSERT INTO `tr_cuci` VALUES (4, 'TRS0004', '9999', 1, '6000', NULL, NULL, '1', '10', '18/12/', '2019-12-19', 1, 1);
+INSERT INTO `tr_cuci` VALUES (5, 'TRS0005', '321', 1, '11000', NULL, NULL, '3', '10', '18/12/', '2019-12-19', 2, 2);
+INSERT INTO `tr_cuci` VALUES (6, 'TRS0006', '3304011511950003', NULL, NULL, NULL, NULL, '3', '10', NULL, '2019-12-18', 1, 1);
+INSERT INTO `tr_cuci` VALUES (7, 'TRS0007', '321', NULL, NULL, NULL, NULL, '3', '10', NULL, '2019-12-23', 5, 2);
+INSERT INTO `tr_cuci` VALUES (8, 'TRS0008', '321', NULL, NULL, NULL, NULL, '2', '13', NULL, '2019-12-23', 5, 1);
+INSERT INTO `tr_cuci` VALUES (9, 'TRS0009', '321', NULL, NULL, NULL, NULL, '1', NULL, NULL, '2019-12-23', 5, 2);
+INSERT INTO `tr_cuci` VALUES (10, 'TRS0010', '321', NULL, NULL, NULL, NULL, '2', '10', NULL, '2020-01-10', 3, 1);
+INSERT INTO `tr_cuci` VALUES (11, 'TRS0011', '321', NULL, NULL, NULL, NULL, '1', NULL, NULL, '2020-03-22', 1, 1);
 
 -- ----------------------------
 -- Table structure for tr_cuci_detail
@@ -278,35 +259,28 @@ CREATE TABLE `tr_cuci_detail`  (
   `mobil_id` int(11) NULL DEFAULT NULL,
   `tgl_pesan` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`cuci_detail_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tr_cuci_detail
 -- ----------------------------
-INSERT INTO `tr_cuci_detail` VALUES (1, 'TRS0001', '3302265602970002', 1, '2020-04-10');
-INSERT INTO `tr_cuci_detail` VALUES (2, 'TRS0002', '3302265602970002', 12, '2020-04-10');
-INSERT INTO `tr_cuci_detail` VALUES (3, 'TRS0003', '3302260105990001', 11, '2020-04-10');
-INSERT INTO `tr_cuci_detail` VALUES (4, 'TRS0004', '3302246807980001', 13, '2020-04-11');
-INSERT INTO `tr_cuci_detail` VALUES (5, 'TRS0005', '3302246807980001', 13, '2020-04-12');
-INSERT INTO `tr_cuci_detail` VALUES (6, 'TRS0006', '3302255108910001', 16, '2020-04-13');
-INSERT INTO `tr_cuci_detail` VALUES (7, 'TRS0007', '3302246311960001', 18, '2020-04-20');
-INSERT INTO `tr_cuci_detail` VALUES (8, 'TRS0008', '3302246311960001', 15, '2020-04-20');
-INSERT INTO `tr_cuci_detail` VALUES (9, 'TRS0009', '3302265602970002', 1, '2020-04-22');
-INSERT INTO `tr_cuci_detail` VALUES (10, 'TRS0010', '3302260105990001', 11, '2020-05-24');
-INSERT INTO `tr_cuci_detail` VALUES (11, 'TRS0011', '3302255108910001', 16, '2020-04-26');
-INSERT INTO `tr_cuci_detail` VALUES (12, 'TRS0012', '3302255108910001', 17, '2020-04-26');
-INSERT INTO `tr_cuci_detail` VALUES (13, 'TRS0013', '3302246311960001', 15, '2020-05-01');
-INSERT INTO `tr_cuci_detail` VALUES (14, 'TRS0014', '3302246311960001', 18, '2020-05-01');
-INSERT INTO `tr_cuci_detail` VALUES (15, 'TRS0015', '3302246807980001', 13, '2020-05-01');
-INSERT INTO `tr_cuci_detail` VALUES (16, 'TRS0016', '3302260105990001', 11, '2020-05-01');
-INSERT INTO `tr_cuci_detail` VALUES (17, 'TRS0017', '3302255108910001', 16, '2020-05-01');
-INSERT INTO `tr_cuci_detail` VALUES (18, 'TRS0018', '3302246311960001', 18, '2020-05-02');
-INSERT INTO `tr_cuci_detail` VALUES (19, 'TRS0019', '3302255108910001', 17, '2020-05-02');
+INSERT INTO `tr_cuci_detail` VALUES (1, 'TRS0001', '3304011511950003', 1, '2019-12-15');
+INSERT INTO `tr_cuci_detail` VALUES (2, 'TRS0002', '3304011511950003', 1, '2019-12-17');
+INSERT INTO `tr_cuci_detail` VALUES (3, 'TRS0002', '3304011511950003', 2, '2019-12-17');
+INSERT INTO `tr_cuci_detail` VALUES (4, 'TRS0003', '112', 3, '2019-12-16');
+INSERT INTO `tr_cuci_detail` VALUES (5, 'TRS0004', '9999', 4, '2019-12-18');
+INSERT INTO `tr_cuci_detail` VALUES (6, 'TRS0005', '321', 5, '2019-12-19');
+INSERT INTO `tr_cuci_detail` VALUES (7, 'TRS0006', '3304011511950003', 1, '2019-12-18');
+INSERT INTO `tr_cuci_detail` VALUES (8, 'TRS0007', '321', 5, '2019-12-23');
+INSERT INTO `tr_cuci_detail` VALUES (9, 'TRS0008', '321', 6, '2019-12-23');
+INSERT INTO `tr_cuci_detail` VALUES (10, 'TRS0009', '321', 5, '2019-12-23');
+INSERT INTO `tr_cuci_detail` VALUES (11, 'TRS0010', '321', 5, '2020-01-10');
+INSERT INTO `tr_cuci_detail` VALUES (12, 'TRS0011', '321', 5, '2020-03-22');
 
 -- ----------------------------
 -- View structure for view_user
 -- ----------------------------
 DROP VIEW IF EXISTS `view_user`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_user` AS select `a`.`no_ktp` AS `no_ktp`,`a`.`nama` AS `nama`,`a`.`alamat` AS `alamat`,`b`.`kecamatan` AS `kecamatan`,`c`.`kelurahan` AS `kelurahan`,`a`.`tempat_lahir` AS `tempat_lahir`,`a`.`tanggal_lahir` AS `tanggal_lahir`,`a`.`no_telp` AS `no_telp`,`a`.`jenis_user` AS `jenis_user`,`a`.`fotosatu` AS `fotosatu` from ((`tm_user` `a` join `kecamatan` `b` on((`a`.`kecamatan_id` = `b`.`kecamatan_id`))) join `kelurahan` `c` on((`a`.`kelurahan_id` = `c`.`kelurahan_id`))) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_user` AS select `a`.`no_ktp` AS `no_ktp`,`a`.`nama` AS `nama`,`a`.`alamat` AS `alamat`,`b`.`kecamatan` AS `kecamatan`,`c`.`kelurahan` AS `kelurahan`,`a`.`tempat_lahir` AS `tempat_lahir`,`a`.`tanggal_lahir` AS `tanggal_lahir`,`a`.`no_telp` AS `no_telp`,`a`.`jenis_user` AS `jenis_user`,`a`.`fotosatu` AS `fotosatu` from ((`tm_user` `a` join `kecamatan` `b` on((`a`.`kecamatan_id` = `b`.`kecamatan_id`))) join `kelurahan` `c` on((`a`.`kelurahan_id` = `c`.`kelurahan_id`))); ;
 
 SET FOREIGN_KEY_CHECKS = 1;
